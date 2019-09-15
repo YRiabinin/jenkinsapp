@@ -1,0 +1,16 @@
+{
+  "orgName": "JenkinsApp",
+  "country": "UA",
+  "username": "admin.admin@japp.org",
+  "adminEmail": "sforce.dev.008@gmail.com",
+  "edition": "Developer",
+  "features": [],
+  "orgPreferences": {
+    "enabled": [
+      "S1DesktopEnabled"
+    ],
+    "disabled": [
+      "S1EncryptedStoragePref2"
+    ]
+  }
+}
