@@ -7,11 +7,11 @@ pipeline {
         SFDC_HOST = 'https://login.salesforce.com'
         JWT_KEY_CRED_ID = credentials('9fa85236-84d8-4fa5-bf6d-3b83868a31e5')
         CONNECTED_APP_CONSUMER_KEY='3MVG96_7YM2sI9wTTpIpn2FVO.Mm.HxpHNFZDs_.bPGJDE.EranWdiaIe9D2mXaM7p00ZhQ0y7hO2v9YEy_QS'
-        tool name: 'toolbelt', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
         // ...
     }
     stages {
         stage('TEST1') {
+            tool name: 'toolbelt', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
             steps {
                 withCredentials([file(credentialsId: '9fa85236-84d8-4fa5-bf6d-3b83868a31e5', variable: 'VAR_CERT_FILE')]) {
                     bat returnStdout: true, script: "${toolbelt}/sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${VAR_CERT_FILE} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
