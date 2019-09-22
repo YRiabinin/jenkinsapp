@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('TEST1') {
             steps {
-                withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'VAR_CERT_FILE')]) {
+                withCredentials([file(credentialsId: '9fa85236-84d8-4fa5-bf6d-3b83868a31e5', variable: 'VAR_CERT_FILE')]) {
                     bat returnStdout: true, script: "${toolbelt}/sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${VAR_CERT_FILE} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
                 }
             }
